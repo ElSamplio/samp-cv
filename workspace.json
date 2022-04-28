@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "projects": {
+    "samp-cv-api": "apps/samp-cv-api"
+  }
+}

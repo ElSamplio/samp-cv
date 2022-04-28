@@ -1,0 +1,52 @@
+{
+  "root": "apps/samp-cv-api",
+  "sourceRoot": "apps/samp-cv-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/samp-cv-api",
+        "main": "apps/samp-cv-api/src/main.ts",
+        "tsConfig": "apps/samp-cv-api/tsconfig.app.json",
+        "assets": ["apps/samp-cv-api/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/samp-cv-api/src/environments/environment.ts",
+              "with": "apps/samp-cv-api/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "samp-cv-api:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/samp-cv-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/samp-cv-api"],
+      "options": {
+        "jestConfig": "apps/samp-cv-api/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
