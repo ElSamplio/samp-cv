@@ -1,0 +1,60 @@
+{
+  "root": "apps/samp-cv-web",
+  "sourceRoot": "apps/samp-cv-web",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/samp-cv-web",
+        "outputPath": "dist/apps/samp-cv-web"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "samp-cv-web:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "samp-cv-web:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "samp-cv-web:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "samp-cv-web:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/samp-cv-web"],
+      "options": {
+        "jestConfig": "apps/samp-cv-web/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/samp-cv-web/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

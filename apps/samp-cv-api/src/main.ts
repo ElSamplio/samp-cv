@@ -4,11 +4,13 @@
  */
 
 import * as express from 'express';
+import * as cors from 'cors'
 
 const app = express();
+app.use(cors());
 
 app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to samp-cv-api!' });
+  res.send({ message: 'Welcome to samp-cv-api Sergio! See me in front' });
 });
 
 const port = process.env.port || 3333;

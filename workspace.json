@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
-    "samp-cv-api": "apps/samp-cv-api"
+    "samp-cv-api": "apps/samp-cv-api",
+    "samp-cv-web": "apps/samp-cv-web",
+    "samp-cv-web-e2e": "apps/samp-cv-web-e2e"
   }
 }
