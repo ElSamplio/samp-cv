@@ -5,7 +5,9 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "build:samp-cv-api": "nx run samp-cv-api:build",
+    "build:samp-cv-web": "nx run samp-cv-web:build"
   },
   "private": true,
   "dependencies": {
